@@ -54,6 +54,8 @@ jobs:
         run: |
           sudo swapoff -av
           sudo rm -f /swapfile
+          ls /dev/disk
+          ls /dev/disk/azure/
 
       - name: Reclaiming disk space on / by removing .NET framework
         run: sudo rm -rf /usr/share/dotnet
