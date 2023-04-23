@@ -93,7 +93,7 @@ jobs:
 
       - name: Copying args.gn to target folder
         run: |
-          cat .build/android_arm/args.gn | sed "s#target_cpu = \"arm\"#target_cpu = \"${{ matrix.platform }}\"#" | sed "s#android_default_version_name = \"Git\"#android_default_version_name = \"Git$(date '+%y%m%d')Gen${{ github.run_id }}\"#" > secondary_disk/out/android_${{ matrix.platform }}/args.gn
+          cat .build/production_build_reference/args.gn | sed "s#target_cpu = \"arm\"#target_cpu = \"${{ matrix.platform }}\"#" | sed "s#android_default_version_name = \"Git\"#android_default_version_name = \"Git$(date '+%y%m%d')Gen${{ github.run_id }}\"#" > secondary_disk/out/android_${{ matrix.platform }}/args.gn
           cat secondary_disk/out/android_${{ matrix.platform }}/args.gn
       - name: Creating rclone config
         run: |
